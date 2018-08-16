@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import FilmsCategory from './components/films/FilmsCategory';
+import PeopleCategory from './components/people/PeopleCategory';
+import PlanetsCategory from './components/planets/PlanetsCategory';
+import SpeciesCategory from './components/species/SpeciesCategory';
+import StarshipsCategory from './components/starships/StarshipsCategory';
+import VehiclesCategory from './components/vehicles/VehiclesCategory';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router basename={process.env.PUBLIC_URL}>
+          <div>
+            <Route path="/films" component={FilmsCategory} />
+            <Route path="/people" component={PeopleCategory} />
+            <Route path="/planets" component={PlanetsCategory} />
+            <Route path="/species" component={SpeciesCategory} />
+            <Route path="/starships" component={StarshipsCategory} />
+            <Route path="/vehicles" component={VehiclesCategory} />
+          </div>
+      </Router>
     );
   }
 }
