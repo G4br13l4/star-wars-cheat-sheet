@@ -28,6 +28,7 @@ nav > ul >li {
     background: #000000;
     height: 15vh;
     margin: 0 1.5%;
+    margin-bottom: 1.5%;
     color:white;
 }
 
@@ -42,5 +43,10 @@ nav > ul >li {
 .h-center {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
+
+.bold {
+    font-weight: bold;
+}
+

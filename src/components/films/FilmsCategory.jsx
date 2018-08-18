@@ -8,28 +8,29 @@ class FilmsCategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rawData:{},      
+      rawData:{},
+      showData:[],      
     };
   }
 
   componentDidMount() {
-    fetch('https://swapi.co/api/people')
+    fetch('https://swapi.co/api/films')
     .then(results => {
       return results.json();
     }).then(data =>{
+      
       this.setState({rawData:data.results});
-      // let array= data.results.map((item) => {
-      //   return(
-      //     <tr>
-      //       <td>{item.gender}</td>
-      //       <td>{item.name}</td>
-      //       <td className="hide-col">{item.height}</td>
-      //       <td className="hide-col">{item.mass}</td>
-      //     </tr>
-      //   )
-      // })
-      // this.setState({data:array});
-      console.log(this.state)
+      const films = this.state.rawData.map((film) => {
+        return(
+          <FilmCard
+            title={film.title}
+            episode={film.episode_id}
+            date = {film.release_date}
+          />
+        )
+      })    
+      this.setState({showData:films});
+      console.log(this.state.showData)
     })
   }
   
@@ -38,13 +39,10 @@ class FilmsCategory extends Component {
         <section>
           <NavBar/>
           <BreadCrumb
-          category="Films"
+            category="Films"
           />
           <div className="h-center">
-            <FilmCard/>
-            <FilmCard/>
-            <FilmCard/>
-            <FilmCard/>
+            {this.state.showData}
           </div>
         </section>
     );
