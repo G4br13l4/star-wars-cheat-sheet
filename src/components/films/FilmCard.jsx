@@ -10,6 +10,7 @@ class FilmCard extends Component {
             <p><span className="bold">Title: </span>{this.props.title}</p>
             <p><span className="bold">Episode: </span>{this.props.episode}</p>
             <p><span className="bold">Release Date: </span>{this.props.date}</p>
+            <button id={this.props.episode}>See more</button>
         </div>
     );
   }
