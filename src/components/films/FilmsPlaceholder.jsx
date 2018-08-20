@@ -23,6 +23,10 @@ class FilmsPlaceholder extends Component {
     this.changeStyle();
   }
 
+  showChar(chars){
+    console.log(chars)
+  }
+
   changeStyle(){
     this.setState({style:""});
   }
@@ -37,6 +41,7 @@ class FilmsPlaceholder extends Component {
         return(
           <FilmCard 
             showFilm={this.showFilmDetail}
+            showChar={this.showChar}
             parentMethod={this.showFilmDetail}
             title={film.title}
             episode={film.episode_id}
@@ -47,7 +52,7 @@ class FilmsPlaceholder extends Component {
           />
 
         )
-      })    
+      }) 
       this.setState({show:films});
     })
   }

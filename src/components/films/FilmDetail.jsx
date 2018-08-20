@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import CharCard  from './CharCard';
 
 class FilmDetail extends Component {
   constructor(props) {
     super(props);
-    this.getCharacters = this.getCharacters.bind(this);
+    this.state = {
+        gaby:[]
+    };
+    this.getChar = this.getChar.bind(this);
   }
   
-  getCharacters(){
-    console.log(this.props.characters)
+  getChar(){
+    let urlsChar = this.props.characters;
+    let arrayPromises = [];
+    
+    //putting responses/promises in array
+    for (let i = 0; i < urlsChar.length; i++) {
+        arrayPromises.push(fetch(urlsChar[i]).then(response => response.json()));
+    }
+
+    //obtaining values of promises
+    Promise.all(arrayPromises).then(chars => { 
+        this.props.showChar(chars); //calling parent method
+    });   
+    
+  }
+
+  sendChars(){
+      console.log("hola")
   }
   
   render() {
     return (
-        <div>
+        <div characters={this.props.characters}>
             <h3><span className="bold">Title: </span>{this.props.title}</h3>
             <p><span className="bold">Episode: </span>{this.props.episode}</p>
             <p><span className="bold">Director: </span>{this.props.director}</p>
@@ -21,12 +41,17 @@ class FilmDetail extends Component {
             <p><span className="bold">Release Date: </span>{this.props.date}</p>
 
             <div>
-                <p onClick={this.getCharacters} characters={this.props.characters}>Related Characters</p>
+                <p onClick={this.getChar}>Related Characters</p>
                 <p>Related Planets</p>
                 <p>Related Starships</p>
                 <p>Related Vehicles</p>
                 <p>Related Species</p>
             </div>
+            <CharCard name="Gaby"/>
+            <div id="chars">
+               
+            </div>
+            
         </div>
     );
   }

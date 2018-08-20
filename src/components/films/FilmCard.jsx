@@ -17,6 +17,7 @@ class FilmCard extends Component {
         producer={this.props.producer}
         date={this.props.date}
         characters={this.props.characters}
+        showChar={this.props.showChar}
       />
     );
     this.props.showFilm(film);
