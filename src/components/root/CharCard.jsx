@@ -5,24 +5,33 @@ import CharDetail  from './CharDetail';
 class CharCard extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      specie:""
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(){
-    let char = (
-      <CharDetail            
-        name={this.props.name}
-        species={this.props.species}
-        height={this.props.height}
-        eyes={this.props.eyes}
-        hair={this.props.hair}
-        gender={this.props.gender}
-        birth={this.props.birth}
-        films={this.props.films}
-        showFilm={this.props.showFilm}
-      />
-    );
-    this.props.showChar(char);
+    
+    fetch(`${this.props.species}`)
+        .then(results => {
+          return results.json();
+        }).then(data =>{
+          let char = (
+            <CharDetail            
+              name={this.props.name}
+              species={data.name}
+              height={this.props.height}
+              eyes={this.props.eyes}
+              hair={this.props.hair}
+              gender={this.props.gender}
+              birth={this.props.birth}
+              films={this.props.films}
+              showFilm={this.props.showFilm}
+            />
+          );
+          this.props.showChar(char);
+        })
   }
   
   render() {

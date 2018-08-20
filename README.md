@@ -1,4 +1,5 @@
 This project was created with [Create React App](https://github.com/facebookincubator/create-react-app).
+Sólo versión para Desktop por el momento, pronto habrá versión para mobile.
 
 ## Estructura de Directorios
 

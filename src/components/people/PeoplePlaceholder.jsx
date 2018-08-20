@@ -32,7 +32,7 @@ class PeoplePlaceholder extends Component {
       return results.json();
     }).then(data =>{
       this.setState({rawData:data.results});
-      const chars = this.state.rawData.map((char) => {
+      const chars = this.state.rawData.map((char) => { 
         return(
           <CharCard 
             showChar={this.showChar}
