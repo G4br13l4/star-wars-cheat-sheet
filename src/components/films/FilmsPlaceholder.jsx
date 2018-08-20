@@ -68,7 +68,6 @@ class FilmsPlaceholder extends Component {
           <FilmCard 
             showFilm={this.showFilmDetail}
             showChar={this.showChar}
-            parentMethod={this.showFilmDetail}
             title={film.title}
             episode={film.episode_id}
             date = {film.release_date}
