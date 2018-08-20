@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This project was created with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Estructura de Directorios
 
@@ -51,14 +51,14 @@ Es la ubicación del Router
 ## Justificación de tecnologías usadas:
 
 ### `React`
-*Virtual DOM permite que solo vuelvan a renderizar los elementos que han cambiado y no toda la página, lo cual provoca que el tiempo de carga sea menor.
+*Virtual DOM permite que solo se vuelvan a renderizar los elementos que han cambiado y no toda la página, lo cual provoca que el tiempo de carga sea menor.
 *Ayuda a que la creación de rutas sea más ágil
 *Reutilizar componentes del sitio que se repiten
 
 ### `Javascript`
 
-*Es la tecnología con la que estoy más familiarizada.
 *Es la base del framework React
 *Es un lenguaje que es muy díficil que se vuelva obsoleto o depreciado.
+*Es la tecnología con la que estoy más familiarizada.
 
 
