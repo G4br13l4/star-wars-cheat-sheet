@@ -35,7 +35,7 @@ nav > div {
     height: 20vh;
     margin: 0 1.5%;
     margin-bottom: 1.5%;
-    color:white;
+    color: #ffffff;
 }
 
 .small-details{
@@ -125,5 +125,9 @@ a{
 
 a:hover{
     color: #1786EB;
+}
+
+.content {
+    font-family: 'Roboto', sans-serif;
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {Link} from 'react-router-dom';
 
 class NavBar extends Component {
 
@@ -11,12 +12,12 @@ class NavBar extends Component {
           </header>
           <div className="h-center">
             <ul className="nav-btns h-center">
-              <li className="nav-btn"><a href="/films">Films</a></li>
-              <li className="nav-btn"><a href="/people">People</a></li>
-              <li className="nav-btn"><a href="/planets">Planets</a></li>
-              <li className="nav-btn"><a href="/species">Species</a></li>
-              <li className="nav-btn"><a href="/starships">Starships</a></li>
-              <li className="nav-btn"><a href="/vehicles">Vehicles</a></li>
+              <li className="nav-btn"><Link to="/films">Films</Link></li>
+              <li className="nav-btn"><Link to="/people">People</Link></li>
+              <li className="nav-btn"><Link to="/planets">Planets</Link></li>
+              <li className="nav-btn"><Link to="/species">Species</Link></li>
+              <li className="nav-btn"><Link to="/starships">Starships</Link></li>
+              <li className="nav-btn"><Link to="/vehicles">Vehicles</Link></li>
             </ul> 
           </div> 
         </nav>
