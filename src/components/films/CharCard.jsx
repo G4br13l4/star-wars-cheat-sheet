@@ -5,8 +5,8 @@ class CharCard extends Component {
   
   render() {
     return (
-        <div>
-            <h3>{this.props.name}</h3>
+        <div className="charcard">
+            <h4>{this.props.name}</h4>
         </div>
     );
   }

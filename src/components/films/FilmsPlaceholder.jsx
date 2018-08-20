@@ -9,12 +9,14 @@ class FilmsPlaceholder extends Component {
     super(props);
     this.state = {
       rawData:{},
+      prevShow:"",
       show:"",
       style:"h-center",
       film:""
     };
     this.showFilmDetail = this.showFilmDetail.bind(this);
-    this.showChar = this.showChar.bind(this)
+    this.showChar = this.showChar.bind(this);
+    this.returnPage = this.returnPage.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +26,12 @@ class FilmsPlaceholder extends Component {
   showFilmDetail(film){
     this.setState({film: ` > ${film.props.title}`});
     this.setState({show:film});
-    this.changeStyle();
+    this.setState({style:""});
+    this.setState({prevShow:film});
+  }
+
+  returnPage(){
+    this.setState({show:this.state.prevShow});
   }
 
   showChar(chars){
@@ -35,12 +42,8 @@ class FilmsPlaceholder extends Component {
         />
       )
     }) 
-    console.log(newChars)
+    this.setState({style:"box-chars"});
     this.setState({show:newChars});
-  }
-
-  changeStyle(){
-    this.setState({style:""});
   }
 
   showFilms(){
@@ -71,13 +74,16 @@ class FilmsPlaceholder extends Component {
   }
   render() {
     return (
-      <div className={this.state.style}>
+      <div>
         <BreadCrumb
             category="Films"
             link="/films"
             film={this.state.film}
+            returnPage={this.returnPage}
         />
-        {this.state.show}
+        <div className={this.state.style}>
+            {this.state.show}
+        </div>
       </div>
     );
   }
