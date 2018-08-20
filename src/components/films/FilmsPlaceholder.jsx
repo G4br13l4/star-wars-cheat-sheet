@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FilmCard  from './FilmCard';
 import CharCard  from './CharCard';
+import BreadCrumb  from '../root/BreadCrumb';
 
 class FilmsPlaceholder extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class FilmsPlaceholder extends Component {
     this.state = {
       rawData:{},
       show:"",
-      style:"h-center"
+      style:"h-center",
+      film:""
     };
     this.showFilmDetail = this.showFilmDetail.bind(this);
     this.showChar = this.showChar.bind(this)
@@ -20,6 +22,7 @@ class FilmsPlaceholder extends Component {
   }
 
   showFilmDetail(film){
+    this.setState({film: ` > ${film.props.title}`});
     this.setState({show:film});
     this.changeStyle();
   }
@@ -58,6 +61,7 @@ class FilmsPlaceholder extends Component {
             director={film.director}
             producer={film.producer}
             characters={film.characters}
+            synopsis={film.opening_crawl}
           />
 
         )
@@ -68,6 +72,11 @@ class FilmsPlaceholder extends Component {
   render() {
     return (
       <div className={this.state.style}>
+        <BreadCrumb
+            category="Films"
+            link="/films"
+            film={this.state.film}
+        />
         {this.state.show}
       </div>
     );

@@ -32,8 +32,37 @@ nav > ul >li {
     color:white;
 }
 
-.film-detail{
-    
+.small-details{
+    width:25%
+}
+
+.large-detail{
+    width:40%
+}
+
+.box-details{
+    display: flex;
+    flex-wrap: nowrap;
+    margin:1% 0%;
+}
+
+.film-details{
+    margin: 3% 5%;
+}
+
+.related-details{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width:65%;
+    margin-top: 5%;
+}
+
+/* Breadcrumb */
+
+.breadcrumb{
+    width: 100%;
+    padding: 2%;
 }
 
 /* General */

@@ -25,14 +25,20 @@ class FilmDetail extends Component {
   
   render() {
     return (
-        <div characters={this.props.characters}>
+        <div characters={this.props.characters} className="film-details">
             <h3><span className="bold">Title: </span>{this.props.title}</h3>
-            <p><span className="bold">Episode: </span>{this.props.episode}</p>
-            <p><span className="bold">Director: </span>{this.props.director}</p>
-            <p><span className="bold">Producer: </span>{this.props.producer}</p>
-            <p><span className="bold">Release Date: </span>{this.props.date}</p>
-
-            <div>
+            <div className="box-details">
+                <div className="small-details">
+                    <p><span className="bold">Episode: </span>{this.props.episode}</p>
+                    <p><span className="bold">Director: </span>{this.props.director}</p>
+                    <p><span className="bold">Producer: </span>{this.props.producer}</p>
+                    <p><span className="bold">Release Date: </span>{this.props.date}</p>
+                </div>
+                <div className="large-detail">
+                    <p><span className="bold">Synopsis: </span>{this.props.synopsis}</p>
+                </div>
+            </div>
+            <div className="related-details">
                 <p onClick={this.getChar}>Related Characters</p>
                 <p>Related Planets</p>
                 <p>Related Starships</p>
