@@ -7,6 +7,9 @@ class StarshipsCategory extends Component {
     return (
         <section>
             <NavBar/>
+            <div className="empty">
+              <p>Very soon you will see the data of Starships</p>
+            </div>
         </section>
     );
   }

@@ -7,6 +7,9 @@ class VehiclesCategory extends Component {
     return (
         <section>
             <NavBar/>
+            <div className="empty">
+              <p>Very soon you will see the data of Vehicles</p>
+            </div>
         </section>
     );
   }
