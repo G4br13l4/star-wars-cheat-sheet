@@ -18,6 +18,8 @@ class CharCard extends Component {
         hair={this.props.hair}
         gender={this.props.gender}
         birth={this.props.birth}
+        films={this.props.films}
+        showFilm={this.props.showFilm}
       />
     );
     this.props.showChar(char);

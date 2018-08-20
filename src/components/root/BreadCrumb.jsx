@@ -7,7 +7,7 @@ class BreadCrumb extends Component {
         <div className="breadcrumb">
             <p>
               <span><a href={this.props.link}>{this.props.category} </a></span>
-              <span onClick={this.props.returnPage}><a href="#">{this.props.film}</a></span>
+              <span onClick={this.props.returnPage}><a href="#">{this.props.prev}</a></span>
             </p>
         </div>
     );

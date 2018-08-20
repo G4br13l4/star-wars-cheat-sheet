@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class CharDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.getFilms = this.getFilms.bind(this);
+  }
+
+  getFilms(){
+    let urlsFilm = this.props.films;
+    
+    let arrayPromises = [];
+    
+    //putting responses/promises in array
+    for (let i = 0; i < urlsFilm.length; i++) {
+        arrayPromises.push(fetch(urlsFilm[i]).then(response => response.json()));
+    }
+
+    //obtaining values of promises
+    Promise.all(arrayPromises).then(films => { 
+        this.props.showFilm(films); //calling parent method
+    });   
+    
+  }
   
   render() {
     return (
@@ -18,7 +39,7 @@ class CharDetail extends Component {
                 </div>
             </div>
             <div className="related-details">
-                <p><a href="#">Related Films</a></p>
+                <p onClick={this.getFilms}><a href="#">Related Films</a></p>
                 <p>Related Planets</p>
                 <p>Related Starships</p>
                 <p>Related Vehicles</p>

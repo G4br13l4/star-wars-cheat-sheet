@@ -79,7 +79,7 @@ class FilmsPlaceholder extends Component {
         <BreadCrumb
             category="Films"
             link="/films"
-            film={this.state.film}
+            prev={this.state.film}
             returnPage={this.returnPage}
         />
         <div className={this.state.style}>
