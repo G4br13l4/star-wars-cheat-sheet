@@ -13,6 +13,7 @@ class PeoplePlaceholder extends Component {
       style:"box-chars",
       char:""
     };
+    this.showChar = this.showChar.bind(this);
   }
 
   componentDidMount() {
@@ -24,18 +25,33 @@ class PeoplePlaceholder extends Component {
     .then(results => {
       return results.json();
     }).then(data =>{
+      console.log(data.results)
       this.setState({rawData:data.results});
       const chars = this.state.rawData.map((char) => {
         return(
-          <CharCard
+          <CharCard 
+            showChar={this.showChar}            
             name={char.name}
+            species={char.species}
+            height={char.height}
+            eyes={char.eye_color}
+            hair={char.hair_color}
+            gender={char.gender}
+            birth={char.birth_year}
           />
-
         )
       }) 
       this.setState({show:chars});
     })
   }
+
+  showChar(char){
+    //this.setState({film: ` > ${film.props.title}`});
+    this.setState({show:char});
+    //this.setState({style:""});
+    //this.setState({prevShow:film});
+  }
+
   render() {
     return (
       <div>
