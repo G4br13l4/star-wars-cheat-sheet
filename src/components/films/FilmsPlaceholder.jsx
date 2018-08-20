@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FilmCard  from './FilmCard';
-import CharCard  from './CharCard';
+import CharCard  from '../root/CharCard';
 import BreadCrumb  from '../root/BreadCrumb';
 
 class FilmsPlaceholder extends Component {
@@ -32,6 +32,7 @@ class FilmsPlaceholder extends Component {
 
   returnPage(){
     this.setState({show:this.state.prevShow});
+    this.setState({style:""});
   }
 
   showChar(chars){

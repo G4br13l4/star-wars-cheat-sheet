@@ -14,7 +14,8 @@ class App extends Component {
     return (
       <Router basename={process.env.PUBLIC_URL}>
           <div>
-            <Route path="/" component={FilmsCategory} />
+            <Route exact path="/" component={FilmsCategory} />
+            <Route path="/films" component={FilmsCategory} />
             <Route path="/people" component={PeopleCategory} />
             <Route path="/planets" component={PlanetsCategory} />
             <Route path="/species" component={SpeciesCategory} />

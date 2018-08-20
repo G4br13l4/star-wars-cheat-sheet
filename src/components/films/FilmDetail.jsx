@@ -39,7 +39,7 @@ class FilmDetail extends Component {
                 </div>
             </div>
             <div className="related-details">
-                <p onClick={this.getChar}>Related Characters</p>
+                <p onClick={this.getChar}><a href="#">Related Characters</a></p>
                 <p>Related Planets</p>
                 <p>Related Starships</p>
                 <p>Related Vehicles</p>
