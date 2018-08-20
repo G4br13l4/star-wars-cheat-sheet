@@ -26,7 +26,7 @@ class CharDetail extends Component {
   
   render() {
     return (
-        <div>
+        <div className="char-details">
             <h3><span className="bold">Name: </span>{this.props.name}</h3>
             <div className="box-details">
                 <div className="small-details">

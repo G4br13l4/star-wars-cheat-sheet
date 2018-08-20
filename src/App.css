@@ -36,14 +36,17 @@ nav > div {
     margin: 0 1.5%;
     margin-bottom: 1.5%;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .small-details{
-    width:25%
+    width:30%
 }
 
 .large-detail{
-    width:40%
+    width:60%
 }
 
 .box-details{
@@ -53,14 +56,14 @@ nav > div {
 }
 
 .film-details{
-    margin: 3% 5%;
+    padding: 2% 6%;
 }
 
 .related-details{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
-    width:65%;
+    justify-content: space-between; 
+    width:80%;
     margin-top: 5%;
 }
 
@@ -68,7 +71,8 @@ nav > div {
 
 .breadcrumb{
     width: 100%;
-    padding: 2%;
+    padding: 2% 6%;
+    font-size: 1.2em;
 }
 
 /* CharCard */
@@ -88,7 +92,11 @@ nav > div {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 4%;
+    padding: 2% 6%;
+}
+
+.char-details{
+    width:100%;
 }
 /* General */
 
@@ -110,8 +118,7 @@ nav > div {
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    height: 80vh;
-    background: pink;
+    height: 65vh;
 }
 
 .bold {
@@ -127,7 +134,4 @@ a:hover{
     color: #1786EB;
 }
 
-.content {
-    font-family: 'Roboto', sans-serif;
-}
 

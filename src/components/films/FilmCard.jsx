@@ -27,9 +27,11 @@ class FilmCard extends Component {
   render() {
     return (
         <div onClick={this.handleClick} className="film-card">
+          <div>
             <p><span className="bold">Title: </span>{this.props.title}</p>
             <p><span className="bold">Episode: </span>{this.props.episode}</p>
             <p><span className="bold">Release Date: </span>{this.props.date}</p>
+          </div>  
         </div>
     );
   }

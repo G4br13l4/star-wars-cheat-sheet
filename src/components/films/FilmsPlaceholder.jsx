@@ -77,7 +77,6 @@ class FilmsPlaceholder extends Component {
             characters={film.characters}
             synopsis={film.opening_crawl}
           />
-
         )
       }) 
       this.setState({show:films});

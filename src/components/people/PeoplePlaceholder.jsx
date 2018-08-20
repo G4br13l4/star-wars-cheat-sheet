@@ -9,14 +9,17 @@ class PeoplePlaceholder extends Component {
     super(props);
     this.state = {
       rawData:{},
+      prevCat:"",
       prevShow:"",
       show:"",
       style:"box-chars",
-      char:""
+      char:"",
+      cat:"People"
     };
     this.showChar = this.showChar.bind(this);
     this.showFilm = this.showFilm.bind(this);
-    this.returnPage = this.returnPage.bind(this);
+    this.returnItem = this.returnItem.bind(this);
+    this.returnCat = this.returnCat.bind(this);
   }
 
   componentDidMount() {
@@ -46,12 +49,19 @@ class PeoplePlaceholder extends Component {
         )
       }) 
       this.setState({show:chars});
+      this.setState({prevCat:chars});
     })
   }
 
-  returnPage(){
+  returnItem(){
     this.setState({show:this.state.prevShow});
     this.setState({style:"box-chars"});
+  }
+
+  returnCat(){
+    this.setState({show:this.state.prevCat});
+    this.setState({style:"h-center"});
+    this.setState({char:""});
   }
 
   showChar(char){ //details
@@ -83,9 +93,10 @@ class PeoplePlaceholder extends Component {
       <div>
         <BreadCrumb
             category="People"
-            link="/people"
-            prev={this.state.char}
-            returnPage={this.returnPage}
+            prevItem={this.state.char}
+            prevCat={this.state.cat}
+            returnCat={this.returnCat}
+            returnItem={this.returnItem}
         />
         <div className={this.state.style}>
             {this.state.show}
