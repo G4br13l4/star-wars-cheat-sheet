@@ -60,13 +60,14 @@ class PeoplePlaceholder extends Component {
 
   returnCat(){
     this.setState({show:this.state.prevCat});
-    this.setState({style:"h-center"});
+    this.setState({style:"box-chars"});
     this.setState({char:""});
   }
 
   showChar(char){ //details
     this.setState({char: ` > ${char.props.name}`});
     this.setState({show:char});
+    this.setState({style:"box-chars"});
     this.setState({prevShow:char});
   }
 
