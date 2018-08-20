@@ -1,23 +1,29 @@
 /* Navbar */
 
 nav {
-    background: #f4f4f4;
+    background: #F9D120;
 }
 
 nav > header {
-    height: 15vh;
+    height: 25vh;
+}
+
+header > img {
+    height: 100%;
+}
+nav > div {
+    height: 10vh;
+    display: flex;
     align-items: center;
 }
 
-nav > ul {
-    height: 5vh;
-    
+.nav-btns{
+    width: 100%;
 }
-
-nav > ul >li {
+.nav-btns li {
     display: inline-block;
     list-style: none;
-    width: 15%;
+    margin: 0% 2%;
     text-align: center;
 }
 
@@ -113,7 +119,11 @@ nav > ul >li {
 }
 
 a{
-    text-decoration: none
+    text-decoration: none;
+    color:#222222;
 }
 
+a:hover{
+    color: #1786EB;
+}
 

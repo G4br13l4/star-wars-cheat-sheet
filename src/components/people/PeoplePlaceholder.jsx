@@ -28,6 +28,7 @@ class PeoplePlaceholder extends Component {
     .then(results => {
       return results.json();
     }).then(data =>{
+      console.log(data.results)
       this.setState({rawData:data.results});
       const chars = this.state.rawData.map((char) => {
         return(
