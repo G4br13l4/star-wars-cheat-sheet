@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FilmCard  from './FilmCard';
+import CharCard  from './CharCard';
 
 class FilmsPlaceholder extends Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class FilmsPlaceholder extends Component {
       show:"",
       style:"h-center"
     };
-
-    this.showFilmDetail = this.showFilmDetail.bind(this)
+    this.showFilmDetail = this.showFilmDetail.bind(this);
+    this.showChar = this.showChar.bind(this)
   }
 
   componentDidMount() {
@@ -24,7 +25,15 @@ class FilmsPlaceholder extends Component {
   }
 
   showChar(chars){
-    console.log(chars)
+    const newChars = chars.map((char) => {
+      return(
+        <CharCard 
+          name={char.name}
+        />
+      )
+    }) 
+    console.log(newChars)
+    this.setState({show:newChars});
   }
 
   changeStyle(){

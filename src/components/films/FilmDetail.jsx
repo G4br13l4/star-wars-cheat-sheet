@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CharCard  from './CharCard';
 
 class FilmDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-        gaby:[]
-    };
     this.getChar = this.getChar.bind(this);
   }
   
@@ -26,10 +22,6 @@ class FilmDetail extends Component {
     });   
     
   }
-
-  sendChars(){
-      console.log("hola")
-  }
   
   render() {
     return (
@@ -46,12 +38,7 @@ class FilmDetail extends Component {
                 <p>Related Starships</p>
                 <p>Related Vehicles</p>
                 <p>Related Species</p>
-            </div>
-            <CharCard name="Gaby"/>
-            <div id="chars">
-               
-            </div>
-            
+            </div> 
         </div>
     );
   }
