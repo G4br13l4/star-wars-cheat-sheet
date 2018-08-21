@@ -11,6 +11,7 @@ nav > header {
 header > img {
     height: 100%;
 }
+
 nav > div {
     height: 10vh;
     display: flex;
@@ -27,6 +28,20 @@ nav > div {
     text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+    nav > header {
+        height: 20vh;
+    }
+
+    nav > div {
+        height: 15vh;
+    }
+
+    .nav-btns li {
+        width: 30%;
+        margin: 3% 0%;
+    }
+}
 /* Films */
 
 .film-card {
@@ -67,6 +82,33 @@ nav > div {
     margin-top: 5%;
 }
 
+@media only screen and (max-width: 600px) {
+    .film-card {
+        width: 45%;
+        height: 20vh;
+        padding: 5% 4%;
+    }
+    
+    .small-details,
+    .large-detail{
+        width:100%
+    }
+
+    .film-details{
+        padding: 6%;
+    }
+
+    .box-details{
+        display: inline-block;
+    }
+
+    .related-details{
+        display: inline-block;
+        width:100%;
+        margin-bottom: 5%;
+    }
+}
+
 /* Breadcrumb */
 
 .breadcrumb{
@@ -75,6 +117,12 @@ nav > div {
     font-size: 1.2em;
 }
 
+@media only screen and (max-width: 600px) {
+    .breadcrumb{
+        font-size: 1.1em;
+        margin-top: 1%;
+    }
+}
 /* CharCard */
 
 .charcard{
@@ -98,6 +146,20 @@ nav > div {
 .char-details{
     width:100%;
 }
+
+@media only screen and (max-width: 600px) {
+    .charcard{
+        height: 10vh;
+        width:30%;
+        margin-bottom: 1%;
+        text-align: center;        
+    }
+
+    .box-chars {
+        margin-bottom: 5%;
+    }
+}
+
 /* General */
 
 *{
