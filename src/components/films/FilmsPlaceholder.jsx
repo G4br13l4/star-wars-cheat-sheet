@@ -1,101 +1,118 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import FilmCard  from './FilmCard';
-import CharCard  from '../root/CharCard';
-import BreadCrumb  from '../root/BreadCrumb';
+import NavBar  from '../root/NavBar';
+import Film  from './Film';
+import Breadcrumb  from '../root/Breadcrumb';
 
 class FilmsPlaceholder extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      rawData:{},
-      prevCat:"",
-      prevShow:"",
+    this.state= {
       show:"",
-      style:"h-center",
-      film:"",
-      cat:"Films"
+      first:"Films",
+      firstCnt:"",
+      second: "",
+      secondCnt:"",
+      third:"",
+      thirdCnt:"",
+      fourth:"",
+      fourthCnt:""
     };
-    this.showFilmDetail = this.showFilmDetail.bind(this);
-    this.showChar = this.showChar.bind(this);
-    this.returnItem = this.returnItem.bind(this);
-    this.returnCat = this.returnCat.bind(this);
+    this.showView = this.showView.bind(this);
+    this.addBread = this.addBread.bind(this);
+    this.showBread = this.showBread.bind(this);
   }
 
   componentDidMount() {
-    this.showFilms();
+    this.createFilms();
   }
 
-  showFilmDetail(film){
-    this.setState({film: ` > ${film.props.title}`});
-    this.setState({show:film});
-    this.setState({style:""});
-    this.setState({prevShow:film});
-  }
-
-  returnItem(){
-    this.setState({show:this.state.prevShow});
-    this.setState({style:""});
-    this.setState({show:this.state.prevShow});
-  }
-
-  returnCat(){
-    this.setState({show:this.state.prevCat});
-    this.setState({style:"h-center"});
-    this.setState({film:""});
-  }
-
-  showChar(chars){
-    const newChars = chars.map((char) => {
-      return(
-        <CharCard 
-          name={char.name}
-        />
-      )
-    }) 
-    this.setState({style:"box-chars"});
-    this.setState({show:newChars});
-  }
-
-  showFilms(){
+  createFilms(){
     fetch('https://swapi.co/api/films')
-    .then(results => {
-      return results.json();
-    }).then(data =>{
-      this.setState({rawData:data.results});
-      const films = this.state.rawData.map((film) => {
-        return(
-          <FilmCard 
-            showFilm={this.showFilmDetail}
-            showChar={this.showChar}
-            title={film.title}
-            episode={film.episode_id}
-            date = {film.release_date}
-            director={film.director}
-            producer={film.producer}
-            characters={film.characters}
-            synopsis={film.opening_crawl}
+      .then(results => {
+        return results.json();
+      }).then(data =>{
+        const templateFilms = data.results.map((film) => {
+          return(
+          <Film 
+              title={film.title}
+              episode={film.episode_id}
+              date={film.release_date}
+              director={film.director}
+              producer={film.producer}
+              synopsis={film.opening_crawl}
+              chars={film.characters}
+              showView={this.showView}
+              addBread={this.addBread}
           />
-        )
+          ); 
       }) 
-      this.setState({show:films});
-      this.setState({prevCat:films});
-    })
+      this.showView(templateFilms);
+      this.setState({firstCnt:templateFilms}); //add for breadcrumb 
+      })
   }
+
+  showView(view){
+    this.setState({show:view});
+  }
+
+  addBread( place, viewName, viewCnt){
+    switch(place) {
+      case "second":
+          this.setState({second:`  >  ${viewName}`});
+          this.setState({secondCnt:viewCnt});
+          break;
+      case "third":
+          this.setState({third:`  >  ${viewName}`});
+          this.setState({thirdCnt:viewCnt});
+          break;
+      case "fourth":
+          this.setState({fourth:`  >  ${viewName}`});
+          break;
+      default:
+          break;
+    }
+  }
+
+  showBread(e){
+    let place =e.target.dataset.place;
+    
+    switch(place) {
+      case "first":
+          this.setState({show: this.state.firstCnt});
+          this.setState({second:""});
+          this.setState({third:""});
+          this.setState({fourth:""});
+          break;
+      case "second":
+          this.setState({show: this.state.secondCnt});
+          this.setState({third:""});
+          this.setState({fourth:""});
+          break;
+      case "third":
+          this.setState({show: this.state.thirdCnt});
+          this.setState({fourth:""});
+          break;
+      default:
+          break;
+    }
+  }
+
   render() {
     return (
-      <div>
-        <BreadCrumb
-            category="Films"
-            prevItem={this.state.film}
-            prevCat={this.state.cat}
-            returnCat={this.returnCat}
-            returnItem={this.returnItem}
-        />
-        <div className={this.state.style}>
+        <section>
+          <NavBar/>
+          <Breadcrumb
+            first={this.state.first}
+            second={this.state.second}
+            third={this.state.third}
+            fourth={this.state.fourth}
+            showBread={this.showBread}
+          /> 
+          <div className="placeholder">
             {this.state.show}
-        </div>
-      </div>
+          </div>
+          
+        </section>
     );
   }
 }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import NavBar  from '../root/NavBar';
 
-class VehiclesCategory extends Component {
+class VehiclesPlaceholder extends Component {
   render() {
     return (
         <section>
@@ -15,4 +14,4 @@ class VehiclesCategory extends Component {
   }
 }
 
-export default VehiclesCategory;
+export default VehiclesPlaceholder;

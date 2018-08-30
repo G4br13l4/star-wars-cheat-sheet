@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 
 class NavBar extends Component {
@@ -8,7 +7,7 @@ class NavBar extends Component {
     return (
         <nav>
           <header className="h-center">
-            <img src="assets/logo.png"/>
+            <img src="assets/logo.png" alt="logo"/>
           </header>
           <div className="h-center">
             <ul className="nav-btns h-center">

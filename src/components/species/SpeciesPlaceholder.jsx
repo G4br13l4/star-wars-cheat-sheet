@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import NavBar  from '../root/NavBar';
 
-class StarshipsCategory extends Component {
+class SpeciesPlaceholder extends Component {
   render() {
     return (
         <section>
             <NavBar/>
             <div className="empty">
-              <p>Very soon you will see the data of Starships</p>
+              <p>Very soon you will see the data of Species</p>
             </div>
         </section>
     );
   }
 }
 
-export default StarshipsCategory;
+export default SpeciesPlaceholder;
