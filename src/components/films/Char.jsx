@@ -39,12 +39,16 @@ class Char extends Component {
     }
 
     getType(){
-        fetch(this.props.type[0])
-        .then(results => {
-            return results.json();
-        }).then(data =>{
-            this.getPic(data.name);
-        }) 
+        if(this.props.type[0]===undefined){
+            this.getPic("None");
+        }else{
+            fetch(this.props.type[0])
+            .then(results => {
+                return results.json();
+            }).then(data =>{
+                this.getPic(data.name);
+            }) 
+        }
     }
 
     handleClick(){

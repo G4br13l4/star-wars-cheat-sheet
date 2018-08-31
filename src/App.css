@@ -91,9 +91,11 @@ nav > div {
 
 @media only screen and (max-width: 600px) {
     .film-card {
-        width: 45%;
-        height: 20vh;
-        padding: 5% 4%;
+        width: 49.5%;
+        height: auto;
+        padding: 3%;
+        align-items: flex-start;
+        margin: 0 .5% 2% 0;
     }
     
     .small-details,
@@ -157,9 +159,10 @@ nav > div {
 
 @media only screen and (max-width: 600px) {
     .char{
-        height: 13vh;
-        width:31%;
-        padding: 5%;
+        width:31.5%;
+        height: auto;
+        padding: 3%;
+        margin: 0 0.5% 2% 0;
         text-align: center;
     }
 
