@@ -7,11 +7,11 @@ class Char extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    createCharDetail(type){
+    createCharDetail(type,pic){
         const templateCharDetail = (
             <div className="char-details">
                 <div className="box-img">
-                    <img src="https://secure.img1-fg.wfcdn.com/im/99586765/resize-h400-p1-w400%5Ecompr-r85/1717/17178453/Star+Wars+Luke+Skywalker+Cutout+Wall+Decal.jpg"/>
+                    <img src={pic}/>
                 </div>
                 <div className="box-details txt-center">
                     <h3><span className="bold">Name: </span>{this.props.name}</h3>
@@ -33,12 +33,23 @@ class Char extends Component {
         this.props.addBread("second", this.props.name,templateCharDetail);//add for breadcrumb
     }
 
+    getPic(type){
+        fetch("https://next.json-generator.com/api/json/get/NJZxmwbvS")
+        .then(results => {
+            return results.json();
+        }).then(data =>{
+            let name= this.props.name;
+            let pic= data[name].picture;
+            this.createCharDetail(type,pic);
+        }) 
+    }
+
     getType(){
         fetch(this.props.type[0])
         .then(results => {
             return results.json();
         }).then(data =>{
-            this.createCharDetail(data.name);
+            this.getPic(data.name);
         }) 
     }
 
