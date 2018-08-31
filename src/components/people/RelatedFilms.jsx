@@ -48,7 +48,7 @@ class RelatedFilms extends Component {
 
     render() {
         return (
-            <div className="related-details">
+            <div className="related-films">
                 <p onClick={this.handleClick}  className="link">Related Films</p>
                 <p>Related Planets</p>
                 <p>Related Starships</p>

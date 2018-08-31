@@ -49,7 +49,7 @@ class RelatedChars extends Component {
 
     render() {
         return (
-            <div className="related-details">
+            <div className="related-chars">
                 <p onClick={this.handleClick}  className="link">Related Characters</p>
                 <p>Related Planets</p>
                 <p>Related Starships</p>

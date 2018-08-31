@@ -8,9 +8,9 @@ class Film extends Component {
 
     createFilmDetail(){
         const templateFilmDetail=(
-            <div>
+            <div className="film-details">
                 <h3><span className="bold">Title: </span>{this.props.title}</h3>
-                <div className="box-details">
+                <div>
                     <div className="small-details">
                         <p><span className="bold">Episode: </span>{this.props.episode}</p>
                         <p><span className="bold">Director: </span>{this.props.director}</p>
